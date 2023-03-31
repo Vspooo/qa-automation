@@ -1,0 +1,190 @@
+[1679671300.413][INFO]: Starting ChromeDriver 111.0.5563.64 (c710e93d5b63b7095afe8c2c17df34408078439d-refs/branch-heads/5563@{#995}) on port 42384
+[1679671300.414][INFO]: Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+[1679671300.780][INFO]: [0864e45ab15eb6b0a773caeb0cb54a1b] COMMAND InitSession {
+   "capabilities": {
+      "firstMatch": [ {
+         "acceptInsecureCerts": true,
+         "browserName": "chrome",
+         "goog:chromeOptions": {
+            "args": [ "--proxy-bypass-list=\u003C-loopback>", "--disable-dev-shm-usage", "--no-sandbox" ],
+            "excludeSwitches": [ "enable-automation", "load-extension" ],
+            "extensions": [  ],
+            "prefs": {
+               "credentials_enable_service": false,
+               "download.default_directory": "C:\\Users\\Lenovo\\IdeaProjects\\automation\\build\\downloads\\1679671297639_13296_1",
+               "plugins.always_open_pdf_externally": true
+            }
+         },
+         "pageLoadStrategy": "normal"
+      } ]
+   },
+   "desiredCapabilities": {
+      "acceptInsecureCerts": true,
+      "acceptSslCerts": true,
+      "browserName": "chrome",
+      "goog:chromeOptions": {
+         "args": [ "--proxy-bypass-list=\u003C-loopback>", "--disable-dev-shm-usage", "--no-sandbox" ],
+         "excludeSwitches": [ "enable-automation", "load-extension" ],
+         "extensions": [  ],
+         "prefs": {
+            "credentials_enable_service": false,
+            "download.default_directory": "C:\\Users\\Lenovo\\IdeaProjects\\automation\\build\\downloads\\1679671297639_13296_1",
+            "plugins.always_open_pdf_externally": true
+         }
+      },
+      "handlesAlerts": true,
+      "javascriptEnabled": true,
+      "pageLoadStrategy": "normal",
+      "takesScreenshot": true
+   }
+}
+[1679671300.788][INFO]: Populating Preferences file: {
+   "alternate_error_pages": {
+      "enabled": false
+   },
+   "autofill": {
+      "enabled": false
+   },
+   "browser": {
+      "check_default_browser": false
+   },
+   "credentials_enable_service": false,
+   "distribution": {
+      "import_bookmarks": false,
+      "import_history": false,
+      "import_search_engine": false,
+      "make_chrome_default_for_user": false,
+      "skip_first_run_ui": true
+   },
+   "dns_prefetching": {
+      "enabled": false
+   },
+   "download": {
+      "default_directory": "C:\\Users\\Lenovo\\IdeaProjects\\automation\\build\\downloads\\1679671297639_13296_1"
+   },
+   "plugins": {
+      "always_open_pdf_externally": true
+   },
+   "profile": {
+      "content_settings": {
+         "pattern_pairs": {
+            "https://*,*": {
+               "media-stream": {
+                  "audio": "Default",
+                  "video": "Default"
+               }
+            }
+         }
+      },
+      "default_content_setting_values": {
+         "geolocation": 1
+      },
+      "default_content_settings": {
+         "geolocation": 1,
+         "mouselock": 1,
+         "notifications": 1,
+         "popups": 1,
+         "ppapi-broker": 1
+      },
+      "password_manager_enabled": false
+   },
+   "safebrowsing": {
+      "enabled": false
+   },
+   "search": {
+      "suggest_enabled": false
+   },
+   "translate": {
+      "enabled": false
+   }
+}
+[1679671300.789][INFO]: Populating Local State file: {
+   "background_mode": {
+      "enabled": false
+   },
+   "ssl": {
+      "rev_checking": {
+         "enabled": false
+      }
+   }
+}
+[1679671300.797][INFO]: Launching chrome: "C:\Program Files\Google\Chrome\Application\chrome.exe" --allow-pre-commit-input --disable-background-networking --disable-backgrounding-occluded-windows --disable-client-side-phishing-detection --disable-default-apps --disable-dev-shm-usage --disable-hang-monitor --disable-popup-blocking --disable-prompt-on-repost --disable-sync --enable-blink-features=ShadowDOMV0 --enable-logging --ignore-certificate-errors --log-level=0 --no-first-run --no-sandbox --no-service-autorun --password-store=basic --proxy-bypass-list=<-loopback> --remote-debugging-port=0 --test-type=webdriver --use-mock-keychain --user-data-dir="C:\Users\Lenovo\AppData\Local\Temp\scoped_dir15592_647489113" data:,
+[1679671301.466][INFO]: resolved localhost to ["::1","127.0.0.1"]
+[1679671301.478][INFO]: [0864e45ab15eb6b0a773caeb0cb54a1b] RESPONSE InitSession {
+   "capabilities": {
+      "acceptInsecureCerts": true,
+      "browserName": "chrome",
+      "browserVersion": "111.0.5563.65",
+      "chrome": {
+         "chromedriverVersion": "111.0.5563.64 (c710e93d5b63b7095afe8c2c17df34408078439d-refs/branch-heads/5563@{#995})",
+         "userDataDir": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\scoped_dir15592_647489113"
+      },
+      "goog:chromeOptions": {
+         "debuggerAddress": "localhost:54864"
+      },
+      "networkConnectionEnabled": false,
+      "pageLoadStrategy": "normal",
+      "platformName": "windows",
+      "proxy": {
+      },
+      "setWindowRect": true,
+      "strictFileInteractability": false,
+      "timeouts": {
+         "implicit": 0,
+         "pageLoad": 300000,
+         "script": 30000
+      },
+      "unhandledPromptBehavior": "dismiss and notify",
+      "webauthn:extension:credBlob": true,
+      "webauthn:extension:largeBlob": true,
+      "webauthn:extension:minPinLength": true,
+      "webauthn:extension:prf": true,
+      "webauthn:virtualAuthenticators": true
+   },
+   "sessionId": "0864e45ab15eb6b0a773caeb0cb54a1b"
+}
+[1679671301.539][INFO]: [0864e45ab15eb6b0a773caeb0cb54a1b] COMMAND MaximizeWindow {
+}
+[1679671301.539][INFO]: Waiting for pending navigations...
+[1679671301.544][INFO]: Done waiting for pending navigations. Status: ok
+[1679671301.658][INFO]: Waiting for pending navigations...
+[1679671301.660][INFO]: Done waiting for pending navigations. Status: ok
+[1679671301.660][INFO]: [0864e45ab15eb6b0a773caeb0cb54a1b] RESPONSE MaximizeWindow {
+   "height": 1056,
+   "width": 1936,
+   "x": -8,
+   "y": -8
+}
+[1679671301.667][INFO]: [0864e45ab15eb6b0a773caeb0cb54a1b] COMMAND SetTimeouts {
+   "pageLoad": 10000
+}
+[1679671301.667][INFO]: [0864e45ab15eb6b0a773caeb0cb54a1b] RESPONSE SetTimeouts
+[1679671301.673][INFO]: [0864e45ab15eb6b0a773caeb0cb54a1b] COMMAND Navigate {
+   "url": "https://www.saucedemo.com/"
+}
+[1679671301.673][INFO]: Waiting for pending navigations...
+[1679671301.675][INFO]: Done waiting for pending navigations. Status: ok
+[1679671301.803][INFO]: Waiting for pending navigations...
+[1679671302.074][INFO]: Done waiting for pending navigations. Status: ok
+[1679671302.074][INFO]: [0864e45ab15eb6b0a773caeb0cb54a1b] RESPONSE Navigate
+[1679671302.162][INFO]: [0864e45ab15eb6b0a773caeb0cb54a1b] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//input[@name = 'user-name']"
+}
+[1679671302.162][INFO]: Waiting for pending navigations...
+[1679671302.163][INFO]: Done waiting for pending navigations. Status: ok
+[1679671302.172][INFO]: Waiting for pending navigations...
+[1679671302.173][INFO]: Done waiting for pending navigations. Status: ok
+[1679671302.173][INFO]: [0864e45ab15eb6b0a773caeb0cb54a1b] RESPONSE FindElement {
+   "element-6066-11e4-a52e-4f735466cecf": "2faa0326-c39c-4092-b12e-9b5d759b5242"
+}
+[1679671302.180][INFO]: [0864e45ab15eb6b0a773caeb0cb54a1b] COMMAND TypeElement {
+   "id": "2faa0326-c39c-4092-b12e-9b5d759b5242",
+   "text": "hello",
+   "value": [ "h", "e", "l", "l", "o" ]
+}
+[1679671302.180][INFO]: Waiting for pending navigations...
+[1679671302.181][INFO]: Done waiting for pending navigations. Status: ok
+[1679671302.241][INFO]: Waiting for pending navigations...
+[1679671302.245][INFO]: Done waiting for pending navigations. Status: ok
+[1679671302.245][INFO]: [0864e45ab15eb6b0a773caeb0cb54a1b] RESPONSE TypeElement
