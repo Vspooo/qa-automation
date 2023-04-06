@@ -29,6 +29,7 @@ public class FullTest extends DefaultTest {
              mainPage().getMainPageAddButtons().get(i).shouldBe(Condition.enabled).click();
 
         }
+        sleep(10000);
 
         mainPage().clickShoppingCartButton();
         mainPage().clickCheckOutButton();
