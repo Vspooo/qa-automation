@@ -1,68 +1,65 @@
 package hm4;
 
+import Pages.LoginPage;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
-import com.codeborne.selenide.SelenideElement;
-import com.sun.source.tree.AssertTree;
 import org.base.DefaultTest;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$$;
+import static Pages.Pages.loginPage;
+import static Pages.Pages.mainPage;
+import static com.codeborne.selenide.Selenide.*;
 
-public class FullTest extends DefaultTest{
+public class FullTest extends DefaultTest {
+
     @Test
-    public void FirstTest(){
-        $(By.xpath("//input[@placeholder = 'Username']")).shouldBe(Condition.visible).shouldHave(Condition.name("user-name")).append("standard_user");
-        $(By.xpath("//input[@placeholder = 'Password']")).shouldBe(Condition.visible).shouldHave(Condition.id("password")).append("secret_sauce");
-//        $(By.xpath("//input[@data-test = 'login-button']")).shouldHave(Condition.enabled).click();
-        $(By.xpath("//input[@data-test = 'login-button']")).shouldBe(Condition.enabled).shouldHave(Condition.attribute("id","login-button")).click();
+    public void FirstTest() {
+       loginPage().typeUsername("standard_user");
+        loginPage().typePassword("secret_sauce");
+        loginPage().clickLoginButton();
 
-
-        ElementsCollection buttons = $$(By.xpath("//button[@class='btn btn_primary btn_small btn_inventory']"));
+       ElementsCollection buttons = mainPage().getMainPageAddButtons();
         for (int i = 0; i < buttons.size(); i++) {
-            $$(By.xpath("//button[@class='btn btn_primary btn_small btn_inventory']")).get(i).shouldBe(Condition.visible).click();
+             mainPage().getMainPageAddButtons().get(i).shouldBe(Condition.enabled).click();
+
         }
-        $(By.xpath("//a[@class = 'shopping_cart_link']")).shouldBe(Condition.enabled).click();
-        $(By.xpath("//button[@data-test = 'checkout']")).shouldBe(Condition.enabled).shouldHave(Condition.id("checkout")).scrollTo().click();
-        $(By.xpath("//input[@data-test = 'firstName']")).shouldBe(Condition.empty).shouldHave(Condition.id("first-name")).append("Volodymyr");
-        $(By.xpath("//input[@data-test = 'lastName']")).shouldBe(Condition.empty).shouldHave(Condition.id("last-name")).append("Voloshyn");
-        $(By.xpath("//input[@data-test = 'postalCode']")).shouldBe(Condition.empty).shouldHave(Condition.id("postal-code")).append("30-450");
-        $(By.xpath("//input[@data-test = 'continue']")).shouldBe(Condition.enabled).shouldHave(Condition.id("continue")).click();
-        SelenideElement expectedPrice = $(By.xpath("//div[@class ='summary_subtotal_label']/text()[2]"));
-        ElementsCollection actualPrices = $$(By.xpath("//div[@class ='inventory_item_price']/text()[2]"));
+
+        mainPage().clickShoppingCartButton();
+        mainPage().clickCheckOutButton();
+        mainPage().typeFistNameInput("Volodymyr");
+        mainPage().typeLastNameInput("Voloshyn");
+        mainPage().typePostalCode("30-810");
+        mainPage().clickContinueButton();
+        String expectedPrice = $(By.xpath("//div[@class='summary_subtotal_label']")).text();
+        List<String> listPrices = $$(By.xpath("//div[@class ='inventory_item_price']")).texts();
+
+
         List<Double> parsedPrice = new ArrayList<>();
-        for (int i = 0; i < actualPrices.size(); i++) {
-            String s = actualPrices.get(i).toString();
+        for (int i = 0; i < listPrices.size(); i++) {
+            String s = listPrices.get(i).replaceAll("\\$", "");;
             parsedPrice.add(Double.parseDouble(s));
-            
         }
+        Object[] objects =parsedPrice.toArray();
+        double result = 0;
+        for (Object value:objects){
+            result +=(double) value;
+        }
+        String replacedPrice = expectedPrice.replaceAll("Item total: \\$", "");
+        double price = Double.parseDouble(replacedPrice);
+        Assert.assertEquals(result,price);
 
 
-
-//        Double.parseDouble(actualPrices)
-//        for (int i = 0; i < actualPrices.size(); i++) {
-//             Double.parseDouble(i);
-//
-//        }
-//        SelenideElement expPrice = $(By.xpath("//div[@class ='summary_subtotal_label']/text()[2]"));
-//        ElementsCollection prices = $$(By.xpath("//div[@class ='inventory_item_price']/text()[2]"));
-//        int realPrice = 0;
-//        for (int i = 0; i < prices.size(); i++) {
-//             i+= realPrice;
-//        }
-//        Assert.assertEquals(expPrice,realPrice);
-
-                ;
-        $(By.xpath("//button[@data-test = 'finish']")).shouldBe(Condition.enabled).shouldHave(Condition.id("finish")).scrollTo().click();
-        Assert.assertTrue($(By.xpath("//div[@class= 'checkout_complete_container']")).is(Condition.visible));
-        $(By.xpath("//button[@data-test = 'back-to-products']")).shouldBe(Condition.enabled).shouldHave(Condition.id("back-to-products")).click();
+        mainPage().clickFinishButton();
+         Assert.assertTrue($(By.xpath("//div[@class= 'checkout_complete_container']")).is(Condition.visible));
+        mainPage().clickBackHomeButton();
 
 
+        }
     }
-}
+
