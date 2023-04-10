@@ -18,5 +18,37 @@ public class Pages {
         return mainPage;
     }
 
+   private static CartPage cartPage;
+    public static CartPage cartPage(){
+        if (cartPage == null){
+            cartPage = new CartPage();
+        }
+        return cartPage;
+    }
+
+    private static CheckOutInformationPage checkOutInformation;
+    public static CheckOutInformationPage checkOutInformation(){
+        if (checkOutInformation == null){
+            checkOutInformation = new CheckOutInformationPage();
+        }
+        return checkOutInformation;
+    }
+
+    private static CheckOutOverviewPage checkOutOverview;
+    public static CheckOutOverviewPage checkOutOverview(){
+        if (checkOutOverview == null){
+            checkOutOverview = new CheckOutOverviewPage();
+        }
+        return checkOutOverview;
+    }
+
+    private static CheckOutCompletePage checkOutCompletePage;
+    public  static CheckOutCompletePage checkOutCompletePage(){
+        if (checkOutCompletePage == null){
+            checkOutCompletePage = new CheckOutCompletePage();
+        }
+        return checkOutCompletePage;
+    }
+
 
 }

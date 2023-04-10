@@ -16,19 +16,8 @@ public class MainPage {
 
     private final SelenideElement shoppingCartButton = $(By.xpath("//a[@class ='shopping_cart_link']"));
 
-    private final SelenideElement checkOutButton = $(By.xpath("//button[@data-test = 'checkout']"));
-
-    private final SelenideElement firstNameInput = $(By.xpath("//input[@data-test='firstName']"));
-
-    private final SelenideElement lastNameInput = $(By.xpath("//input[@data-test='lastName']"));
-
-    private final SelenideElement postalCodeInput = $(By.xpath("//input[@data-test='postalCode']"));
-
-    private final SelenideElement continueButton = $(By.xpath("//input[@data-test='continue']"));
-
-    private final SelenideElement finishButton = $(By.xpath("//button[@data-test='finish']"));
-
-    private final SelenideElement backHomeButton = $(By.xpath("//button[@data-test='back-to-products']"));
+    private final SelenideElement productSortContainer = $(By.xpath("//select[@class ='product_sort_container']"));
+    private final ElementsCollection sortContainerValues = $$(By.xpath("//option[@value]"));
 
 
 
@@ -48,32 +37,14 @@ public class MainPage {
         shoppingCartButton.shouldBe(Condition.enabled).click();
     }
 
-    public void clickCheckOutButton(){
-        checkOutButton.shouldBe(Condition.enabled).shouldHave(Condition.id("checkout")).scrollTo().click();
+
+
+    public void clickProductSortButton(){
+        productSortContainer.shouldBe(Condition.enabled).shouldHave(Condition.attribute("data-test","product_sort_container")).click();
     }
 
-    public void typeFistNameInput(String firstName){
-        firstNameInput.shouldBe(Condition.visible).shouldHave(Condition.name("firstName")).append(firstName);
-    }
-
-    public void typeLastNameInput(String lastName){
-        lastNameInput.shouldBe(Condition.visible).shouldHave(Condition.name("lastName")).append(lastName);
-    }
-
-    public void typePostalCode(String postalCode){
-        postalCodeInput.shouldBe(Condition.visible).shouldHave(Condition.name("postalCode")).append(postalCode);
-    }
-
-    public void clickContinueButton(){
-        continueButton.shouldBe(Condition.enabled).shouldHave(Condition.id("continue")).click();
-    }
-
-    public void clickFinishButton(){
-        finishButton.shouldBe(Condition.enabled).shouldHave(Condition.id("finish")).scrollTo().click();
-    }
-
-    public void clickBackHomeButton(){
-        backHomeButton.shouldBe(Condition.enabled).shouldHave(Condition.id("back-to-products")).click();
+    public ElementsCollection getSortContainerValues(){
+        return sortContainerValues;
     }
 
 

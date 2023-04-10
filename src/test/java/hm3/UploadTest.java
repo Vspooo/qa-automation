@@ -1,10 +1,6 @@
 package hm3;
-import com.codeborne.selenide.*;
-import org.apache.commons.io.FileUtils;
-import org.base.DefaultTest;
+import base.DefaultTest;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import java.io.File;

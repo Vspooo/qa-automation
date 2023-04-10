@@ -1,28 +1,29 @@
 package Pages;
 
+import base.CustomLogger.PageTools;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.$;
 
-public class LoginPage {
-    private final SelenideElement usernameInput =  $(By.xpath("//input[@placeholder = 'Username']"));
-    private final SelenideElement passwordInput =  $(By.xpath("//input[@placeholder = 'Password']"));
+public class LoginPage extends PageTools {
+    private final By usernameInput = (By.xpath("//input[@placeholder = 'Username']"));
+    private final By passwordInput = (By.xpath("//input[@placeholder = 'Password']"));
 
-    private final SelenideElement loginButton = $(By.xpath("//input[@data-test ='login-button']"));
+    private final By loginButton = (By.xpath("//input[@data-test ='login-button']"));
 
 
-    public void typeUsername(String username){
-       usernameInput.shouldBe(Condition.visible).shouldHave(Condition.attribute("id","user-name")).append(username);
+    public void typeUsername(String username) {
+    type(username,usernameInput);
    }
 
    public void typePassword(String password){
-       passwordInput.shouldBe(Condition.visible).shouldHave(Condition.attribute("id","password")).append(password);
+     type(password,passwordInput);
    }
    public void clickLoginButton(){
-       loginButton.shouldBe(Condition.enabled).shouldHave(Condition.attribute("name","login-button")).click();
-   }
+        click(loginButton);
+    }
 
 
 }
