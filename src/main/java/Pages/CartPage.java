@@ -1,22 +1,21 @@
 package Pages;
-import com.codeborne.selenide.*;
-import org.apache.hc.core5.util.Asserts;
+import base.CustomLogger.PageTools;
 import org.openqa.selenium.By;
 
 
-import java.util.List;
-
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
-import static org.openqa.selenium.By.*;
-public class CartPage {
-    private final SelenideElement checkOutButton = $(By.xpath("//button[@data-test = 'checkout']"));
 
-
-
-
+public class CartPage extends PageTools {
+    private final By checkOutButton = (By.xpath("//button[@data-test = 'checkout']"));
+    private final By cartHeader = (By.xpath("//div[@class='header_secondary_container']"));
     public void clickCheckOutButton(){
-        checkOutButton.shouldBe(Condition.enabled).shouldHave(Condition.id("checkout")).scrollTo().click();
+        click(checkOutButton);
+    }
+
+    public boolean isCartPagePresent(){
+        return isElementVisible(cartHeader);
+
     }
 
 }

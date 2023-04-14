@@ -12,9 +12,6 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
 public class LoginPage extends PageTools {
-    private final By usernames = (By.xpath("//div[@class ='login_credentials']"));
-
-    private final By userPassword= (By.xpath("//div[@class ='login_password']"));
     private final By usernameInput = (By.xpath("//input[@placeholder = 'Username']"));
     private final By passwordInput = (By.xpath("//input[@placeholder = 'Password']"));
 
@@ -34,13 +31,9 @@ public class LoginPage extends PageTools {
         click(loginButton);
     }
 
-   public List<String> getUserNames(){
-       return getElementsText(usernames);
-    }
 
-   public String getUserPassword(){
-        return getElementText(userPassword);
-   }
+
+
 
 
 

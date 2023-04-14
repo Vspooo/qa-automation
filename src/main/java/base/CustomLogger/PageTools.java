@@ -37,7 +37,7 @@ public class PageTools extends CustomLogger {
 
     protected void click(By by,Object... args){
         logInfo(getPreviousMethodNameAsText()+ " ',element -> " + byLocator(by,args) );
-        shouldBe(Condition.enabled,by,args).click();
+        shouldBe(Condition.enabled,by,args).scrollTo().click();
     }
 
 
@@ -74,9 +74,30 @@ public class PageTools extends CustomLogger {
         logInfo(getPreviousMethodNameAsText() + " ', element -> " + byLocator(by,args));
         $(byLocator(by,args)).shouldHave(Condition.attribute("data-test",dataTest));
     }
-
+    protected void shouldHaveId(By by,String idValue,Object... args){
+        logInfo(getPreviousMethodNameAsText() + " ', element -> " + byLocator(by,args));
+        $(byLocator(by,args)).shouldHave(Condition.attribute("id",idValue));
+    }
     protected  void pressEnterButton(){
         Selenide.actions().sendKeys(Keys.ENTER).perform();
+    }
+
+    protected boolean isCondition(By by, Condition condition, Object... args){
+        logInfo(getPreviousMethodNameAsText() + " ', element -> " + byLocator(by,args));
+        return getElement(by,args).is(condition);
+    }
+
+    protected void isConditionName(By by,String name,Object... args){
+        logInfo(getPreviousMethodNameAsText() + " ', element -> " + byLocator(by,args));
+        $(byLocator(by,args)).shouldBe(Condition.name(name));
+    }
+    protected boolean isElementVisible(By by,Object... args){
+        logInfo(getPreviousMethodNameAsText() + " ', element -> " + byLocator(by,args));
+        return isCondition(by,Condition.visible,args);
+    }
+    protected boolean isElementNotEmpty(By by,Object... args){
+        logInfo(getPreviousMethodNameAsText() + " ', element -> " + byLocator(by,args));
+        return isCondition(by,Condition.not(Condition.empty),args);
     }
 }
 

@@ -29,10 +29,10 @@ public class FullTest extends DefaultTest {
         }
 
 
-        ElementsCollection sortContainerValues = mainPage().getSortContainerValues();
+        ElementsCollection sortContainerValues = mainPage().getItemFilterValues();
         for (int i = 0; i < sortContainerValues.size(); i++) {
-            mainPage().clickProductSortButton();
-            mainPage().getSortContainerValues().get(i).shouldBe(Condition.enabled).click();
+            mainPage().clickItemFilterButton();
+            mainPage().getItemFilterValues().get(i).shouldBe(Condition.enabled).click();
             sleep(3000);
         }
 
@@ -66,6 +66,8 @@ public class FullTest extends DefaultTest {
         checkOutCompletePage().clickBackHomeButton();
 
 
+
+
         }
 
 
@@ -75,10 +77,10 @@ public class FullTest extends DefaultTest {
             loginPage().typePassword("secret_sauce");
             loginPage().clickLoginButton();
 
-            ElementsCollection sortContainerValues = mainPage().getSortContainerValues();
+            ElementsCollection sortContainerValues = mainPage().getItemFilterValues();
             for (int i = 0; i < sortContainerValues.size(); i++) {
-                mainPage().clickProductSortButton();
-                mainPage().getSortContainerValues().get(i).shouldBe(Condition.enabled).click();
+                mainPage().clickItemFilterButton();
+                mainPage().getItemFilterValues().get(i).shouldBe(Condition.enabled).click();
                 sleep(3000);
             }
 

@@ -14,7 +14,7 @@ public class DefaultTest {
         Configuration.startMaximized = true;
 //        Configuration.browserSize = "800x600";
         Configuration.headless = false;
-        Configuration.holdBrowserOpen = true;
+        Configuration.holdBrowserOpen = false;
         Configuration.timeout = 10000;
         Configuration.pageLoadStrategy = "normal";
         Configuration.screenshots = true;
@@ -28,12 +28,12 @@ public class DefaultTest {
     }
     @AfterMethod(alwaysRun = true)
     public void cleanWebDriver(){
-//        Selenide.clearBrowserCookies();
-//        Selenide.refresh();
-//        Selenide.open("about:blank");
+        Selenide.clearBrowserCookies();
+        Selenide.refresh();
+        Selenide.open("about:blank");
     }
     @AfterClass(alwaysRun = true)
-    public void tearDown(){
-//        Selenide.closeWebDriver();
+    public void afterTest(){
+        Selenide.closeWebDriver();
     }
 }

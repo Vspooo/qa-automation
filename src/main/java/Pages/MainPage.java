@@ -1,7 +1,6 @@
 package Pages;
 import base.CustomLogger.PageTools;
 import com.codeborne.selenide.*;
-import org.apache.hc.core5.util.Asserts;
 import org.openqa.selenium.By;
 
 
@@ -9,7 +8,6 @@ import java.util.List;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
-import static org.openqa.selenium.By.*;
 
 public class MainPage extends PageTools {
     private final By itemNameList = (By.xpath("//div[@class ='inventory_item_name']"));
@@ -17,12 +15,13 @@ public class MainPage extends PageTools {
 
     private final By shoppingCartButton = (By.xpath("//a[@class ='shopping_cart_link']"));
 
-    private final By productSortContainer = (By.xpath("//select[@class ='product_sort_container']"));
-    private final By sortContainerValues = (By.xpath("//option[@value]"));
+    private final By itemsFilter = (By.xpath("//select[@class ='product_sort_container']"));
+    private final By itemFilterValues = (By.xpath("//option[@value]"));
 
     private final By burgerMenu = (By.xpath("//button[text()='Open Menu']"));
 
     private final By logoutButton = (By.xpath("//a[text()='Logout']"));
+    private final By countOfItemsInCart = (By.xpath("//a[@class='shopping_cart_link']"));
 
 
 
@@ -44,15 +43,21 @@ public class MainPage extends PageTools {
        click(shoppingCartButton);
     }
 
-
-
-    public void clickProductSortButton(){
-        click(productSortContainer);
-        shouldHaveDataTest(productSortContainer,"product_sort_container");
+    public void clickAddToCartButton(){
+        click(addItemButtonList);
     }
 
-    public ElementsCollection getSortContainerValues(){
-        return (ElementsCollection) getElements(sortContainerValues);
+    public void clickItemFilterButton(){
+        click(itemsFilter);
+        shouldHaveDataTest(itemsFilter,"product_sort_container");
+    }
+
+    public ElementsCollection getItemFilterValues(){
+        return (ElementsCollection) getElements(itemFilterValues);
+    }
+
+    public void clickOnItemFilterValue(){
+        click(itemFilterValues);
     }
 
     public void clickOnBurgerMenu(){
@@ -63,7 +68,15 @@ public class MainPage extends PageTools {
         click(logoutButton);
     }
 
+    public boolean isMainPagePresent(){
+       return isElementVisible(burgerMenu);
 
-
+    }
+    public SelenideElement getAddToCartButtonByIndex(Integer index){
+        return getElements(addItemButtonList).get(index);
+    }
+    public boolean isCartNotEmpty(){
+     return isElementNotEmpty(countOfItemsInCart);
+    }
 
 }
