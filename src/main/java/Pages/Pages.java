@@ -50,5 +50,29 @@ public class Pages {
         return checkOutCompletePage;
     }
 
+   private static ItemPage itemPage;
+    public static ItemPage itemPage(){
+        if (itemPage == null){
+            itemPage = new ItemPage();
+        }
+        return itemPage;
+    }
+
+    private static BurgerMenuPage burgerMenuPage;
+    public static BurgerMenuPage burgerMenuPage(){
+        if (burgerMenuPage == null){
+            burgerMenuPage = new BurgerMenuPage();
+        }
+        return burgerMenuPage;
+    }
+
+    private static SocialPage socialPage;
+    public static SocialPage socialPage(){
+        if (socialPage == null){
+            socialPage = new SocialPage();
+        }
+        return socialPage;
+    }
+
 
 }

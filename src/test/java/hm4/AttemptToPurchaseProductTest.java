@@ -14,7 +14,7 @@ public class AttemptToPurchaseProductTest extends DefaultTest {
         loginPage().typePassword("secret_sauce");
         loginPage().clickLoginButton();
 
-        while (mainPage().getMainPageAddButtons().size()>0){
+        while (mainPage().getAddButtons().size()>0){
             mainPage().clickAddToCartButton();
         }
         Assert.assertTrue(mainPage().isCartNotEmpty());

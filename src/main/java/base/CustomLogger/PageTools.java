@@ -70,13 +70,9 @@ public class PageTools extends CustomLogger {
         return shouldBe(CollectionCondition.sizeGreaterThan(-1),by,args);
     }
 
-    protected void shouldHaveDataTest(By by,String dataTest ,Object... args){
+    protected void shouldHaveAttribute(By by, String nameOfAttribute,String valueOfAttribute,Object... args){
         logInfo(getPreviousMethodNameAsText() + " ', element -> " + byLocator(by,args));
-        $(byLocator(by,args)).shouldHave(Condition.attribute("data-test",dataTest));
-    }
-    protected void shouldHaveId(By by,String idValue,Object... args){
-        logInfo(getPreviousMethodNameAsText() + " ', element -> " + byLocator(by,args));
-        $(byLocator(by,args)).shouldHave(Condition.attribute("id",idValue));
+        $(byLocator(by,args)).shouldHave(Condition.attribute(nameOfAttribute,valueOfAttribute));
     }
     protected  void pressEnterButton(){
         Selenide.actions().sendKeys(Keys.ENTER).perform();
@@ -87,10 +83,6 @@ public class PageTools extends CustomLogger {
         return getElement(by,args).is(condition);
     }
 
-    protected void isConditionName(By by,String name,Object... args){
-        logInfo(getPreviousMethodNameAsText() + " ', element -> " + byLocator(by,args));
-        $(byLocator(by,args)).shouldBe(Condition.name(name));
-    }
     protected boolean isElementVisible(By by,Object... args){
         logInfo(getPreviousMethodNameAsText() + " ', element -> " + byLocator(by,args));
         return isCondition(by,Condition.visible,args);

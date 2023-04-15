@@ -14,7 +14,7 @@ public class DefaultTest {
         Configuration.startMaximized = true;
 //        Configuration.browserSize = "800x600";
         Configuration.headless = false;
-        Configuration.holdBrowserOpen = false;
+        Configuration.holdBrowserOpen = true;
         Configuration.timeout = 10000;
         Configuration.pageLoadStrategy = "normal";
         Configuration.screenshots = true;

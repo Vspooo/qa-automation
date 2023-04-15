@@ -21,14 +21,21 @@ public class LoginPage extends PageTools {
 
 
     public void typeUsername(String username) {
+    shouldHaveAttribute(usernameInput,"id","user-name");
     type(username,usernameInput);
    }
 
    public void typePassword(String password){
+     shouldHaveAttribute(passwordInput,"id","password");
      type(password,passwordInput);
    }
    public void clickLoginButton(){
+        shouldHaveAttribute(loginButton,"id","login-button");
         click(loginButton);
+    }
+
+    public boolean isLoginPagePresent(){
+       return isElementVisible(usernameInput);
     }
 
 

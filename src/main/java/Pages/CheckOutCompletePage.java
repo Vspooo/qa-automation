@@ -13,8 +13,8 @@ public class CheckOutCompletePage extends PageTools {
 
 
     public void clickBackHomeButton(){
+        shouldHaveAttribute(checkOutCompleteContainer,"id","checkout_complete_container");
         click(backHomeButton);
-       shouldHaveId(checkOutCompleteContainer,"checkout_complete_container");
     }
 
     public boolean checkingIfOurPurchaseIsSuccessful(){

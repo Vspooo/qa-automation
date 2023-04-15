@@ -19,21 +19,22 @@ public class CheckOutInformationPage extends PageTools {
 
 
     public void typeFistNameInput(String firstName){
+        shouldHaveAttribute(firstNameInput,"name","firstName");
         type(firstName,firstNameInput);
-        isConditionName(firstNameInput,"firstName");
     }
 
     public void typeLastNameInput(String lastName){
+        shouldHaveAttribute(lastNameInput,"name","lastName");
         type(lastName,lastNameInput);
-        isConditionName(lastNameInput,"lastName");
     }
 
     public void typePostalCode(String postalCode){
+        shouldHaveAttribute(postalCodeInput,"name","postalCode");
         type(postalCode,postalCodeInput);
-        isConditionName(postalCodeInput,"postalCode");
     }
 
     public void clickContinueButton(){
+        shouldHaveAttribute(continueButton,"name","continue");
         click((By) continueButton);
     }
 
