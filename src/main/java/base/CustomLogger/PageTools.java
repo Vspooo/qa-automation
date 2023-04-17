@@ -83,11 +83,12 @@ public class PageTools extends CustomLogger {
         return getElement(by,args).is(condition);
     }
 
-    protected boolean isElementVisible(By by,Object... args){
+    public boolean isElementVisible(By by,Object... args){
         logInfo(getPreviousMethodNameAsText() + " ', element -> " + byLocator(by,args));
         return isCondition(by,Condition.visible,args);
     }
-    protected boolean isElementNotEmpty(By by,Object... args){
+
+    public boolean isElementNotEmpty(By by,Object... args){
         logInfo(getPreviousMethodNameAsText() + " ', element -> " + byLocator(by,args));
         return isCondition(by,Condition.not(Condition.empty),args);
     }
