@@ -16,7 +16,7 @@
        <testng>6.14.3</testng>
         <slf4j>1.7.25</slf4j>
         <logback>1.2.3</logback>
-        <allure>2.10.0</allure>
+        <allure.version>2.10.0</allure.version>
         <aspectj.version>1.9.6</aspectj.version>
         <suiteXmlFile>src\main\resources\testSuites.xml</suiteXmlFile>
     </properties>
@@ -46,7 +46,12 @@
         <dependency>
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-selenide</artifactId>
-            <version>${allure}</version>
+            <version>${allure.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-testng</artifactId>
+            <version>${allure.version}</version>
         </dependency>
         <dependency>
             <groupId>org.aspectj</groupId>
@@ -66,14 +71,14 @@
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
                     </argLine>
                     <suiteXmlFiles>
-                        <suiteXmlFile>src\main\resources\testSuites.xml</suiteXmlFile>
+                        <suiteXmlFile>${suiteXmlFile}</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
             </plugin>
             <plugin>
                 <groupId>io.qameta.allure</groupId>
                 <artifactId>allure-maven</artifactId>
-                <version>${allure}</version>
+                <version>${allure.version}</version>
                 <configuration>
                     <reportVersion>2.14.0</reportVersion>
                 </configuration>
