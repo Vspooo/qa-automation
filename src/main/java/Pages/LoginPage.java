@@ -8,14 +8,15 @@ import org.openqa.selenium.By;
 
 import java.util.List;
 
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$$;
+import static com.codeborne.selenide.Selenide.*;
 
 public class LoginPage extends PageTools {
     private final By usernameInput = (By.xpath("//input[@placeholder = 'Username']"));
     private final By passwordInput = (By.xpath("//input[@placeholder = 'Password']"));
 
     private final By loginButton = (By.xpath("//input[@data-test ='login-button']"));
+
+    private final By errorMessage = By.xpath("//h3[@data-test='error']");
 
 
 
@@ -36,6 +37,10 @@ public class LoginPage extends PageTools {
 
     public boolean isLoginPagePresent(){
        return isElementVisible(usernameInput);
+    }
+
+    public boolean isLoginUnsuccessful(){
+        return isElementVisible(errorMessage);
     }
 
 

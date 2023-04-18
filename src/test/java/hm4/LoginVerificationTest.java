@@ -22,7 +22,7 @@ public class LoginVerificationTest extends DefaultTest {
         loginPage().typeUsername("dfgdfg");
         loginPage().typePassword("dfdgdfg");
         loginPage().clickLoginButton();
-        Assert.assertTrue(mainPage().isMainPagePresent());
+        Assert.assertTrue(loginPage().isLoginUnsuccessful());
 
     }
 }

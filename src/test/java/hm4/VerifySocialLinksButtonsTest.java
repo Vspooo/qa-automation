@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 import static Pages.Pages.*;
 
 public class VerifySocialLinksButtonsTest extends DefaultTest {
-    @Test
+    @Test(priority = 1)
     public void verifyTwitterSocialLinkButton(){
         loginPage().typeUsername("standard_user");
         loginPage().typePassword("secret_sauce");
@@ -18,14 +18,17 @@ public class VerifySocialLinksButtonsTest extends DefaultTest {
         Assert.assertTrue(mainPage().isMainPagePresent());
 
         socialPage().clickTwitterButton();
+        Selenide.switchTo().window(1);
 
         Selenide.sleep(3000);
 
         Assert.assertTrue(socialPage().isTwitterPagePresent());
 
+        Selenide.sleep(1000);
+
     }
 
-    @Test
+    @Test(priority = 2)
     public void verifyFacebookSocialLinkButton(){
         loginPage().typeUsername("standard_user");
         loginPage().typePassword("secret_sauce");
@@ -34,13 +37,16 @@ public class VerifySocialLinksButtonsTest extends DefaultTest {
         Assert.assertTrue(mainPage().isMainPagePresent());
 
         socialPage().clickFaceBookButton();
+        Selenide.switchTo().window(2);
 
         Selenide.sleep(3000);
 
         Assert.assertTrue(socialPage().isFaceBookPagePresent());
+
+        Selenide.sleep(1000);
     }
 
-    @Test
+    @Test(priority = 3)
     public void verifyLinkedInSocialLinkButton(){
         loginPage().typeUsername("standard_user");
         loginPage().typePassword("secret_sauce");
@@ -49,9 +55,12 @@ public class VerifySocialLinksButtonsTest extends DefaultTest {
         Assert.assertTrue(mainPage().isMainPagePresent());
 
         socialPage().clickLinkedInButton();
+        Selenide.switchTo().window(3);
 
-        Selenide.sleep(3000);
+        Selenide.sleep(10000);
 
         Assert.assertTrue(socialPage().isLinkedInPagePresent());
+
+        Selenide.sleep(1000);
     }
 }

@@ -5,7 +5,7 @@ import org.openqa.selenium.By;
 
 public class SocialPage extends PageTools {
     private final By twitterButton = By.xpath("//a[text()='Twitter']");
-    private final By twitterLogo = By.xpath("//div[@class='css-901oao r-jwli3a r-37j5jr r-1blvdjr r-b88u0q r-vrz42v r-bcqeeo r-qvutc0']");
+    private final By twitterHeader = By.xpath("//header[@role='banner']");
 
     private final By faceBookButton = By.xpath("//a[text()='Facebook']");
     private final By faceBookLogo = By.xpath("//div[@class='x6s0dn4 x78zum5 x1iyjqo2 x1n2onr6']");
@@ -25,7 +25,7 @@ public class SocialPage extends PageTools {
     }
 
     public boolean isTwitterPagePresent(){
-       return isElementVisible(twitterLogo);
+       return isElementVisible(twitterHeader);
     }
     public boolean isFaceBookPagePresent(){
         return isElementVisible(faceBookLogo);
